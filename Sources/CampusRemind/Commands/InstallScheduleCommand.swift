@@ -1,6 +1,6 @@
 import ArgumentParser
 import Foundation
-import MoodleHelperCore
+import CampusRemindCore
 
 struct InstallScheduleCommand: AsyncParsableCommand {
     static let configuration = CommandConfiguration(
@@ -24,7 +24,7 @@ struct InstallScheduleCommand: AsyncParsableCommand {
             try LaunchAgentManager.load()
             print("Launch agent installed at: \(LaunchAgentManager.plistURL.path)")
             print("Sync will run daily at \(hour):00.")
-            print("\nTo verify: launchctl list | grep moodlehelper")
+            print("\nTo verify: launchctl list | grep campusremind")
         } catch {
             print("Error: \(error.localizedDescription)")
             throw ExitCode.failure

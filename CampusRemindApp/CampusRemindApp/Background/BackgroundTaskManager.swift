@@ -1,12 +1,12 @@
 import BackgroundTasks
 import Foundation
 import os
-import MoodleHelperCore
+import CampusRemindCore
 
 final class BackgroundTaskManager {
     static let shared = BackgroundTaskManager()
-    static let syncTaskIdentifier = "com.moodlehelper.sync"
-    private let logger = Logger(subsystem: "com.moodlehelper", category: "BackgroundTask")
+    static let syncTaskIdentifier = "com.campusremind.sync"
+    private let logger = Logger(subsystem: "com.campusremind", category: "BackgroundTask")
 
     private init() {}
 

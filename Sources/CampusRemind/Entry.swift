@@ -1,10 +1,10 @@
 import ArgumentParser
-import MoodleHelperCore
+import CampusRemindCore
 
 @main
-struct MoodleHelper: AsyncParsableCommand {
+struct CampusRemind: AsyncParsableCommand {
     static let configuration = CommandConfiguration(
-        commandName: "moodlehelper",
+        commandName: "campusremind",
         abstract: "Sync Moodle assignments to Apple Reminders",
         subcommands: [
             SyncCommand.self,

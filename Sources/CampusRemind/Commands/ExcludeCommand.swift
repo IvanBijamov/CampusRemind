@@ -1,6 +1,6 @@
 import ArgumentParser
 import Foundation
-import MoodleHelperCore
+import CampusRemindCore
 
 struct ExcludeCommand: AsyncParsableCommand {
     static let configuration = CommandConfiguration(
@@ -25,7 +25,7 @@ struct ExcludeCommand: AsyncParsableCommand {
         do {
             config = try AppConfig.load()
         } catch {
-            print("Error: No configuration found. Run 'moodlehelper configure' first.")
+            print("Error: No configuration found. Run 'campusremind configure' first.")
             throw ExitCode.failure
         }
 

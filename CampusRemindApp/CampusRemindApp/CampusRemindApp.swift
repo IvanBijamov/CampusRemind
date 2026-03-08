@@ -1,9 +1,9 @@
 import SwiftUI
 import BackgroundTasks
-import MoodleHelperCore
+import CampusRemindCore
 
 @main
-struct MoodleHelperApp: App {
+struct CampusRemindApp: App {
     @Environment(\.scenePhase) private var scenePhase
 
     init() {

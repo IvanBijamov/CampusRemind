@@ -1,5 +1,5 @@
 import SwiftUI
-import MoodleHelperCore
+import CampusRemindCore
 
 struct ContentView: View {
     @State private var isConfigured = FileManager.default.fileExists(

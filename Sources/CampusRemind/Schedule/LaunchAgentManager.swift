@@ -1,8 +1,8 @@
 import Foundation
-import MoodleHelperCore
+import CampusRemindCore
 
 enum LaunchAgentManager {
-    static let label = "com.moodlehelper.sync"
+    static let label = "com.campusremind.sync"
 
     static var plistURL: URL {
         let home = FileManager.default.homeDirectoryForCurrentUser
@@ -64,7 +64,7 @@ enum LaunchAgentManager {
 
     private static func findBinary() throws -> String {
         let possiblePaths = [
-            "/usr/local/bin/moodlehelper",
+            "/usr/local/bin/campusremind",
             ProcessInfo.processInfo.arguments.first,
         ].compactMap { $0 }
 

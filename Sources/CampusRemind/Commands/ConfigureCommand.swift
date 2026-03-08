@@ -1,6 +1,6 @@
 import ArgumentParser
 import Foundation
-import MoodleHelperCore
+import CampusRemindCore
 
 struct ConfigureCommand: AsyncParsableCommand {
     static let configuration = CommandConfiguration(
@@ -9,7 +9,7 @@ struct ConfigureCommand: AsyncParsableCommand {
     )
 
     func run() async throws {
-        print("=== MoodleHelper Configuration ===\n")
+        print("=== CampusRemind Configuration ===\n")
 
         // Prompt for Moodle URL
         print("Moodle URL [https://moodle.conncoll.edu]: ", terminator: "")
@@ -62,7 +62,7 @@ struct ConfigureCommand: AsyncParsableCommand {
             print("Skipped. You can enable it later in the config file.")
         }
 
-        print("\nSetup complete! Run 'moodlehelper sync' to sync assignments.")
+        print("\nSetup complete! Run 'campusremind sync' to sync assignments.")
     }
 }
 

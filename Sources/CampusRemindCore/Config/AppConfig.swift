@@ -20,10 +20,10 @@ public struct AppConfig: Codable {
     public static let configDirectory: URL = {
         #if os(iOS)
         let docs = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
-        return docs.appendingPathComponent("MoodleHelper")
+        return docs.appendingPathComponent("CampusRemind")
         #else
         let home = FileManager.default.homeDirectoryForCurrentUser
-        return home.appendingPathComponent(".moodlehelper")
+        return home.appendingPathComponent(".campusremind")
         #endif
     }()
 

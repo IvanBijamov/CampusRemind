@@ -7,30 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		A1000001 /* MoodleHelperCore in Frameworks */ = {isa = PBXBuildFile; productRef = A1000002 /* MoodleHelperCore */; };
+		A1000001 /* CampusRemindCore in Frameworks */ = {isa = PBXBuildFile; productRef = A1000002 /* CampusRemindCore */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		A1100001 /* MoodleHelperApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MoodleHelperApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A1100001 /* CampusRemindApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CampusRemindApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
-/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
-		A1200002 /* Exceptions for "MoodleHelperApp" folder in "MoodleHelperApp" target */ = {
-			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
-			membershipExceptions = (
-				Info.plist,
-			);
-			target = A1500001 /* MoodleHelperApp */;
-		};
-/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
-
 /* Begin PBXFileSystemSynchronizedRootGroup section */
-		A1200001 /* MoodleHelperApp */ = {
+		A1200001 /* CampusRemindApp */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			exceptions = (
-				A1200002 /* Exceptions for "MoodleHelperApp" folder in "MoodleHelperApp" target */,
-			);
-			path = MoodleHelperApp;
+			path = CampusRemindApp;
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
@@ -40,7 +27,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A1000001 /* MoodleHelperCore in Frameworks */,
+				A1000001 /* CampusRemindCore in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -50,7 +37,7 @@
 		A1400001 = {
 			isa = PBXGroup;
 			children = (
-				A1200001 /* MoodleHelperApp */,
+				A1200001 /* CampusRemindApp */,
 				A1400002 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -58,7 +45,7 @@
 		A1400002 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				A1100001 /* MoodleHelperApp.app */,
+				A1100001 /* CampusRemindApp.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -66,9 +53,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		A1500001 /* MoodleHelperApp */ = {
+		A1500001 /* CampusRemindApp */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = A1700001 /* Build configuration list for PBXNativeTarget "MoodleHelperApp" */;
+			buildConfigurationList = A1700001 /* Build configuration list for PBXNativeTarget "CampusRemindApp" */;
 			buildPhases = (
 				A1500002 /* Sources */,
 				A1300001 /* Frameworks */,
@@ -79,14 +66,14 @@
 			dependencies = (
 			);
 			fileSystemSynchronizedGroups = (
-				A1200001 /* MoodleHelperApp */,
+				A1200001 /* CampusRemindApp */,
 			);
-			name = MoodleHelperApp;
+			name = CampusRemindApp;
 			packageProductDependencies = (
-				A1000002 /* MoodleHelperCore */,
+				A1000002 /* CampusRemindCore */,
 			);
-			productName = MoodleHelperApp;
-			productReference = A1100001 /* MoodleHelperApp.app */;
+			productName = CampusRemindApp;
+			productReference = A1100001 /* CampusRemindApp.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -99,7 +86,7 @@
 				LastSwiftUpdateCheck = 1620;
 				LastUpgradeCheck = 1620;
 			};
-			buildConfigurationList = A1700003 /* Build configuration list for PBXProject "MoodleHelperApp" */;
+			buildConfigurationList = A1700003 /* Build configuration list for PBXProject "CampusRemindApp" */;
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -116,7 +103,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				A1500001 /* MoodleHelperApp */,
+				A1500001 /* CampusRemindApp */,
 			);
 		};
 /* End PBXProject section */
@@ -150,7 +137,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 3FWK4V529W;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = MoodleHelperApp/Info.plist;
+				INFOPLIST_FILE = CampusRemindApp/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -240,7 +227,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 3FWK4V529W;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = MoodleHelperApp/Info.plist;
+				INFOPLIST_FILE = CampusRemindApp/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -318,7 +305,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		A1700001 /* Build configuration list for PBXNativeTarget "MoodleHelperApp" */ = {
+		A1700001 /* Build configuration list for PBXNativeTarget "CampusRemindApp" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				A1700002 /* Debug */,
@@ -327,7 +314,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		A1700003 /* Build configuration list for PBXProject "MoodleHelperApp" */ = {
+		A1700003 /* Build configuration list for PBXProject "CampusRemindApp" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				A1700004 /* Debug */,
@@ -346,9 +333,9 @@
 /* End XCLocalSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		A1000002 /* MoodleHelperCore */ = {
+		A1000002 /* CampusRemindCore */ = {
 			isa = XCSwiftPackageProductDependency;
-			productName = MoodleHelperCore;
+			productName = CampusRemindCore;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

@@ -10,7 +10,7 @@
 	</array>
 	<key>BGTaskSchedulerPermittedIdentifiers</key>
 	<array>
-		<string>com.moodlehelper.sync</string>
+		<string>com.campusremind.sync</string>
 	</array>
 	<key>NSRemindersUsageDescription</key>
 	<string>CampusRemind creates Reminders for your course assignments.</string>
