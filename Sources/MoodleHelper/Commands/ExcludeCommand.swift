@@ -1,5 +1,6 @@
 import ArgumentParser
 import Foundation
+import MoodleHelperCore
 
 struct ExcludeCommand: AsyncParsableCommand {
     static let configuration = CommandConfiguration(

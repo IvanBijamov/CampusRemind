@@ -1,15 +1,16 @@
 import Foundation
 
-actor DescriptionSummarizer {
+@available(macOS 26.0, iOS 26.0, *)
+public actor DescriptionSummarizer {
     private let client: OnDeviceModelClient
     private let verbose: Bool
 
-    init(verbose: Bool = false) throws {
+    public init(verbose: Bool = false) throws {
         self.client = try OnDeviceModelClient()
         self.verbose = verbose
     }
 
-    func summarize(_ description: String?) async -> String? {
+    public func summarize(_ description: String?) async -> String? {
         guard let description, !description.isEmpty else {
             return description
         }

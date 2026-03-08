@@ -1,10 +1,10 @@
 import Foundation
 import Security
 
-enum KeychainHelper {
+public enum KeychainHelper {
     private static let service = "com.moodlehelper"
 
-    static func save(account: String, password: String) throws {
+    public static func save(account: String, password: String) throws {
         let passwordData = Data(password.utf8)
 
         // Delete any existing item first
@@ -28,7 +28,7 @@ enum KeychainHelper {
         }
     }
 
-    static func load(account: String) throws -> String {
+    public static func load(account: String) throws -> String {
         let query: [String: Any] = [
             kSecClass as String: kSecClassGenericPassword,
             kSecAttrService as String: service,
@@ -47,7 +47,7 @@ enum KeychainHelper {
         return password
     }
 
-    static func delete(account: String) {
+    public static func delete(account: String) {
         let query: [String: Any] = [
             kSecClass as String: kSecClassGenericPassword,
             kSecAttrService as String: service,
@@ -57,11 +57,11 @@ enum KeychainHelper {
     }
 }
 
-enum KeychainError: LocalizedError {
+public enum KeychainError: LocalizedError {
     case saveFailed(OSStatus)
     case loadFailed(OSStatus)
 
-    var errorDescription: String? {
+    public var errorDescription: String? {
         switch self {
         case .saveFailed(let status):
             return "Failed to save to Keychain (status: \(status))"

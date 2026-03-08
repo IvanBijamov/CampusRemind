@@ -1,4 +1,5 @@
 import Foundation
+import MoodleHelperCore
 
 enum LaunchAgentManager {
     static let label = "com.moodlehelper.sync"
@@ -62,7 +63,6 @@ enum LaunchAgentManager {
     }
 
     private static func findBinary() throws -> String {
-        // Check if running from a known location
         let possiblePaths = [
             "/usr/local/bin/moodlehelper",
             ProcessInfo.processInfo.arguments.first,
@@ -75,7 +75,6 @@ enum LaunchAgentManager {
             }
         }
 
-        // Fall back to the current executable
         return ProcessInfo.processInfo.arguments[0]
     }
 }

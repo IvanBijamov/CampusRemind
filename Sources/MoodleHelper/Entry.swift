@@ -1,4 +1,5 @@
 import ArgumentParser
+import MoodleHelperCore
 
 @main
 struct MoodleHelper: AsyncParsableCommand {

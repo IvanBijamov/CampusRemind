@@ -1,7 +1,25 @@
 import Foundation
 
-struct ICalParser {
-    static func parse(_ icsContent: String) -> [ICalEvent] {
+public struct ICalEvent {
+    public let uid: String
+    public let summary: String
+    public let description: String?
+    public let dtstart: Date?
+    public let dtend: Date?
+    public let categories: String?
+
+    public init(uid: String, summary: String, description: String?, dtstart: Date?, dtend: Date?, categories: String?) {
+        self.uid = uid
+        self.summary = summary
+        self.description = description
+        self.dtstart = dtstart
+        self.dtend = dtend
+        self.categories = categories
+    }
+}
+
+public struct ICalParser {
+    public static func parse(_ icsContent: String) -> [ICalEvent] {
         let unfolded = unfoldLines(icsContent)
         let lines = unfolded.components(separatedBy: .newlines)
 
@@ -60,7 +78,7 @@ struct ICalParser {
         return events
     }
 
-    static func fetchAndParse(from urlString: String) async throws -> [ICalEvent] {
+    public static func fetchAndParse(from urlString: String) async throws -> [ICalEvent] {
         guard let url = URL(string: urlString) else {
             throw ICalError.invalidURL
         }
@@ -135,11 +153,11 @@ struct ICalParser {
     }
 }
 
-enum ICalError: LocalizedError {
+public enum ICalError: LocalizedError {
     case invalidURL
     case invalidData
 
-    var errorDescription: String? {
+    public var errorDescription: String? {
         switch self {
         case .invalidURL: return "Invalid iCal URL"
         case .invalidData: return "Could not decode iCal data"

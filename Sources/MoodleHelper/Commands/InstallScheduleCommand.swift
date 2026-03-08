@@ -1,5 +1,6 @@
 import ArgumentParser
 import Foundation
+import MoodleHelperCore
 
 struct InstallScheduleCommand: AsyncParsableCommand {
     static let configuration = CommandConfiguration(

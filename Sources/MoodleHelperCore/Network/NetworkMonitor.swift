@@ -1,10 +1,10 @@
 import Foundation
 import Network
 
-enum NetworkError: LocalizedError {
+public enum NetworkError: LocalizedError {
     case timeout(seconds: Int)
 
-    var errorDescription: String? {
+    public var errorDescription: String? {
         switch self {
         case .timeout(let seconds):
             return "Network connectivity not available after waiting \(seconds) seconds."
@@ -26,8 +26,8 @@ private final class ResumeGuard: @unchecked Sendable {
     }
 }
 
-enum NetworkMonitor {
-    static func waitForConnectivity(timeout: Int, verbose: Bool) async throws {
+public enum NetworkMonitor {
+    public static func waitForConnectivity(timeout: Int, verbose: Bool) async throws {
         let monitor = NWPathMonitor()
         let queue = DispatchQueue(label: "com.moodlehelper.networkmonitor")
 

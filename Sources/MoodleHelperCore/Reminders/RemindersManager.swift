@@ -1,17 +1,19 @@
 import EventKit
 import Foundation
 
-actor RemindersManager {
-    let eventStore = EKEventStore()
+public actor RemindersManager {
+    public let eventStore = EKEventStore()
 
-    func requestAccess() async throws {
+    public init() {}
+
+    public func requestAccess() async throws {
         let granted = try await eventStore.requestFullAccessToReminders()
         guard granted else {
             throw RemindersError.accessDenied
         }
     }
 
-    func findOrCreateList(named name: String) throws -> EKCalendar {
+    public func findOrCreateList(named name: String) throws -> EKCalendar {
         let calendars = eventStore.calendars(for: .reminder)
         if let existing = calendars.first(where: {
             $0.title.caseInsensitiveCompare(name) == .orderedSame
@@ -36,7 +38,7 @@ actor RemindersManager {
         return newList
     }
 
-    func reminderExists(title: String, dueDate: Date?, inList list: EKCalendar) async throws -> Bool {
+    public func reminderExists(title: String, dueDate: Date?, inList list: EKCalendar) async throws -> Bool {
         let predicate = eventStore.predicateForReminders(in: [list])
         let reminders = try await withCheckedThrowingContinuation { (continuation: CheckedContinuation<[EKReminder], Error>) in
             eventStore.fetchReminders(matching: predicate) { reminders in
@@ -61,7 +63,7 @@ actor RemindersManager {
         }
     }
 
-    func createReminder(title: String, notes: String?, dueDate: Date?, inList list: EKCalendar) throws {
+    public func createReminder(title: String, notes: String?, dueDate: Date?, inList list: EKCalendar) throws {
         let reminder = EKReminder(eventStore: eventStore)
         reminder.title = title
         reminder.notes = notes
@@ -78,11 +80,11 @@ actor RemindersManager {
     }
 }
 
-enum RemindersError: LocalizedError {
+public enum RemindersError: LocalizedError {
     case accessDenied
     case noSource
 
-    var errorDescription: String? {
+    public var errorDescription: String? {
         switch self {
         case .accessDenied:
             return "Reminders access denied. Grant access in System Settings > Privacy & Security > Reminders."
