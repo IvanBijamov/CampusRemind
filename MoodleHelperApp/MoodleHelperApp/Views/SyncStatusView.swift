@@ -35,7 +35,7 @@ struct SyncStatusView: View {
                     .disabled(viewModel.isSyncing)
                 }
             }
-            .navigationTitle("MoodleHelper")
+            .navigationTitle("CampusRemind")
             .refreshable {
                 viewModel.syncNow()
             }

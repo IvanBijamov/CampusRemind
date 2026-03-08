@@ -57,7 +57,7 @@ struct SettingsView: View {
                     onReconfigure()
                 }
             } message: {
-                Text("This will delete your current configuration. You'll need to set up MoodleHelper again.")
+                Text("This will delete your current configuration. You'll need to set up CampusRemind again.")
             }
         }
     }

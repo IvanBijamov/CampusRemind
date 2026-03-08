@@ -2,6 +2,8 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>CFBundleDisplayName</key>
+	<string>CampusRemind</string>
 	<key>UIBackgroundModes</key>
 	<array>
 		<string>processing</string>
@@ -11,6 +13,6 @@
 		<string>com.moodlehelper.sync</string>
 	</array>
 	<key>NSRemindersUsageDescription</key>
-	<string>MoodleHelper creates Reminders for your Moodle assignments.</string>
+	<string>CampusRemind creates Reminders for your course assignments.</string>
 </dict>
 </plist>
