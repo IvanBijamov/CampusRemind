@@ -1,9 +1,9 @@
-// swift-tools-version: 5.9
+// swift-tools-version: 6.2
 import PackageDescription
 
 let package = Package(
     name: "MoodleHelper",
-    platforms: [.macOS(.v14)],
+    platforms: [.macOS(.v26)],
     dependencies: [
         .package(url: "https://github.com/apple/swift-argument-parser.git", from: "1.3.0"),
     ],
@@ -13,7 +13,10 @@ let package = Package(
             dependencies: [
                 .product(name: "ArgumentParser", package: "swift-argument-parser"),
             ],
-            path: "Sources/MoodleHelper"
+            path: "Sources/MoodleHelper",
+            swiftSettings: [
+                .swiftLanguageMode(.v5),
+            ]
         ),
     ]
 )

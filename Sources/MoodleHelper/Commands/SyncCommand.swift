@@ -14,6 +14,15 @@ struct SyncCommand: AsyncParsableCommand {
     @Flag(name: .long, help: "Show detailed output")
     var verbose = false
 
+    @Option(name: .long, help: "Seconds to wait for network connectivity (default: 300)")
+    var networkTimeout: Int = 300
+
+    @Flag(name: .long, help: "Skip the network connectivity check")
+    var skipNetworkCheck = false
+
+    @Flag(name: .long, help: "Disable AI description summarization for this run")
+    var noSummarize = false
+
     func run() async throws {
         // Load config
         let config: AppConfig
@@ -22,6 +31,33 @@ struct SyncCommand: AsyncParsableCommand {
         } catch {
             print("Error: No configuration found. Run 'moodlehelper configure' first.")
             throw ExitCode.failure
+        }
+
+        // Wait for network connectivity
+        if !skipNetworkCheck {
+            do {
+                try await NetworkMonitor.waitForConnectivity(timeout: networkTimeout, verbose: verbose)
+            } catch {
+                print("Error: \(error.localizedDescription)")
+                throw ExitCode.failure
+            }
+        } else if verbose {
+            print("Network check: skipped")
+        }
+
+        // Initialize summarizer if enabled
+        let summarizer: DescriptionSummarizer?
+        if !noSummarize, config.enableSummarization == true {
+            do {
+                summarizer = try DescriptionSummarizer(verbose: verbose)
+                if verbose { print("AI summarization: enabled (on-device)") }
+            } catch {
+                summarizer = nil
+                if verbose { print("AI summarization: unavailable (\(error.localizedDescription))") }
+            }
+        } else {
+            summarizer = nil
+            if verbose { print("AI summarization: disabled") }
         }
 
         // Request Reminders access
@@ -109,6 +145,14 @@ struct SyncCommand: AsyncParsableCommand {
                         continue
                     }
 
+                    // Summarize description if enabled
+                    let notes: String?
+                    if let summarizer {
+                        notes = await summarizer.summarize(assignment.notes)
+                    } else {
+                        notes = assignment.notes
+                    }
+
                     if dryRun {
                         let dateStr = assignment.dueDate.map { formatDate($0) } ?? "no due date"
                         print("  [dry-run] Would create: \(assignment.title) (\(dateStr))")
@@ -116,7 +160,7 @@ struct SyncCommand: AsyncParsableCommand {
                     } else {
                         try await remindersManager.createReminder(
                             title: assignment.title,
-                            notes: assignment.notes,
+                            notes: notes,
                             dueDate: assignment.dueDate,
                             inList: list
                         )

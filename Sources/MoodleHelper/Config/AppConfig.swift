@@ -7,6 +7,7 @@ struct AppConfig: Codable {
     var icalURL: String?
     var useICalFallback: Bool
     var excludedCourses: [String]?
+    var enableSummarization: Bool?
 
     static let configDirectory: URL = {
         let home = FileManager.default.homeDirectoryForCurrentUser

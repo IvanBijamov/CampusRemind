@@ -86,6 +86,20 @@ struct ConfigureCommand: AsyncParsableCommand {
             print("Warning: \(error.localizedDescription)")
         }
 
+        // AI Summarization setup
+        print("\n--- AI Description Summarization (Optional) ---")
+        print("Summarize verbose assignment descriptions using on-device Apple Intelligence.")
+        print("Enable summarization? [y/N]: ", terminator: "")
+        let summarizeAnswer = readLine()?.trimmingCharacters(in: .whitespaces).lowercased() ?? ""
+
+        if summarizeAnswer == "y" || summarizeAnswer == "yes" {
+            config.enableSummarization = true
+            try config.save()
+            print("Summarization enabled!")
+        } else {
+            print("Skipped. You can enable it later in ~/.moodlehelper/config.json")
+        }
+
         print("\nSetup complete! Run 'moodlehelper sync' to sync assignments.")
     }
 }
